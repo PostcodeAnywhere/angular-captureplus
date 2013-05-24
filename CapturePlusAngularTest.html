@@ -8,7 +8,7 @@
     <div ng-controller="captureCtrl">
     
         <!--capture-field is the directive -->
-        <input id="address" capture-field ng-model="address" name="address" type="text" />
+        <input id="address" capture-plus ng-model="address" name="address" type="text" />
         {{address}}
 
         <!-- Normal Capture Plus script -->
@@ -20,11 +20,11 @@
     </div>
     <script src="http://code.jquery.com/jquery-1.9.0.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.6/angular.min.js"></script>
-    <script src="angular-CapturePlus.min.js"></script>
+    <script src="angular-CapturePlus.js"></script>
     <script type="text/javascript">
 
-        var app = angular.module("testApp", ['capturePlus'])
-        app.controller('captureCtrl', function ($scope, capturePlusService) {
+        var app = angular.module("testApp", ['CapturePlus'])
+        app.controller('captureCtrl', function ($scope, CapturePlus) {
         });
 
     </script>

@@ -1,5 +1,5 @@
-var app = angular.module('capturePlus', []);
-app.directive('captureField', function () {
+var app = angular.module('CapturePlus', []);
+app.directive('capturePlus', function () {
     return {
         require: 'ngModel',
         restrict: 'A',
@@ -25,14 +25,14 @@ app.directive('captureField', function () {
 
 });
 
-app.factory('capturePlusService', function () {
+app.factory('CapturePlus', function () {
     var capture = {
         CapturePlusCallback: function () { },
         CapturePlusError: function () { },
         CapturePlusStartTyping: function () { }
     }
     window.CapturePlusCallback = function (uid, response) {
-        var captureFields = getAllElementsWithAttribute('capture-field');
+        var captureFields = getAllElementsWithAttribute('capture-plus');
         for (var i = 0; i < captureFields.length; i++) {
             var field = document.getElementById(captureFields[i].id);
             if ("fireEvent" in field)
