@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body ng-app="testApp">
+    <div ng-controller="captureCtrl">
+    
+        <!--capture-field is the directive -->
+        <input id="address" capture-field ng-model="address" name="address" type="text" />
+        {{address}}
+
+        <!-- Normal Capture Plus script -->
+        <link rel="stylesheet" type="text/css" href="http://services.postcodeanywhere.co.uk/css/captureplus-1.35.min.css?key=an95-jf96-cp65-pd21" />
+        <script type="text/javascript" src="http://services.postcodeanywhere.co.uk/js/captureplus-1.35.min.js?key=an95-jf96-cp65-pd21&app=14741"></script>
+        <div id="an95jf96cp65pd2114741">
+        </div>
+
+    </div>
+    <script src="http://code.jquery.com/jquery-1.9.0.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.6/angular.min.js"></script>
+    <script src="angular-CapturePlus.min.js"></script>
+    <script type="text/javascript">
+
+        var app = angular.module("testApp", ['capturePlus'])
+        app.controller('captureCtrl', function ($scope, capturePlusService) {
+        });
+
+    </script>
+</body>
+</html>
