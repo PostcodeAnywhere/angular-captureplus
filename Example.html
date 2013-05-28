@@ -7,24 +7,35 @@
 <body ng-app="testApp">
     <div ng-controller="captureCtrl">
     
-        <!--capture-field is the directive -->
-        <input id="address" capture-plus ng-model="address" name="address" type="text" />
-        {{address}}
+        <!--capture-plus is the directive -->
+        <input id="address" capture-plus ng-model="address" type="text" />        
+        <span>{{status}}</span>
 
         <!-- Normal Capture Plus script -->
+        <!--http://www.postcodeanywhere.co.uk/address-capture-software/-->
         <link rel="stylesheet" type="text/css" href="http://services.postcodeanywhere.co.uk/css/captureplus-1.35.min.css?key=aa11-aa11-aa11-aa11" />
         <script type="text/javascript" src="http://services.postcodeanywhere.co.uk/js/captureplus-1.35.min.js?key=aa11-aa11-aa11-aa11&app=aa111"></script>
         <div id="an95jf96cp65pd2114741">
         </div>
-
     </div>
-    <script src="http://code.jquery.com/jquery-1.9.0.min.js"></script>
+    
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.6/angular.min.js"></script>
-    <script src="angular-CapturePlus.js"></script>
+    <script src="angular-CapturePlus.min.js"></script>
     <script type="text/javascript">
+        var app = angular.module("testApp", ['CapturePlus']);
 
-        var app = angular.module("testApp", ['CapturePlus'])
         app.controller('captureCtrl', function ($scope, CapturePlus) {
+            CapturePlus.CapturePlusCallback = function (uid, response) {
+                $scope.status = "Capture completed"
+            }
+
+            CapturePlus.CapturePlusStartTyping = function (uid, response) {
+                $scope.status = "Typing";
+            }
+
+            CapturePlus.CapturePlusError = function (uid, response) {
+                $scope.status = "Error";
+            }
         });
 
     </script>
